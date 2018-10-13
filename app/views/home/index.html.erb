@@ -15,7 +15,13 @@
 
 <hr>
 
+<h2>Orders</h2>
 
+<ul>
+  <% @orders.each do |order| %>
+    <li><%= link_to product.title, "https://#{@shop_session.url}/admin/orders/", target: "_top" %></li>
+  <% end %>
+</ul>
 
 <hr>
 
