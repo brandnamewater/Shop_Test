@@ -10,6 +10,8 @@
 <ul>
   <% @products.each do |product| %>
     <li><%= link_to product.title, "https://#{@shop_session.url}/admin/products/#{product.id}", target: "_top" %></li>
+    <li><%= link_to product.title, "https://#{@shop_session.url}/admin/products/#{product.id}", target: "_top" %></li>
+
   <% end %>
 </ul>
 
@@ -72,7 +74,7 @@
                 <% @products.each do |product| %>
 
                 <tr class="Polaris-DataTable__TableRow">
-                  <th class="Polaris-DataTable__Cell Polaris-DataTable__Cell--fixed" scope="row"><%= link_to order.id, "https://#{@shop_session.url}/admin/orders/", target: "_top" %></th>
+                  <th class="Polaris-DataTable__Cell Polaris-DataTable__Cell--fixed" scope="row">dsf</th>
                   <td class="Polaris-DataTable__Cell Polaris-DataTable__Cell--numeric">$875.00</td>
                   <td class="Polaris-DataTable__Cell Polaris-DataTable__Cell--numeric">124689</td>
                   <td class="Polaris-DataTable__Cell Polaris-DataTable__Cell--numeric">140</td>
