@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Shopify Embedded Example App</title>
+    <%= stylesheet_link_tag 'application' %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+    <div class="app-wrapper">
+      <div class="app-content">
+        <main role="main">
+          <%= yield %>
+        </main>
+      </div>
+    </div>
+
+    <%= render 'layouts/flash_messages' %>
+
+    <script src="https://cdn.shopify.com/s/assets/external/app.js?<%= Time.now.strftime('%Y%m%d%H') %>"></script>
+
+    <script type="text/javascript">
+      ShopifyApp.init({
+        apiKey: "<%= ShopifyApp.configuration.api_key %>",
+        shopOrigin: "<%= "https://#{ @shop_session.url }" if @shop_session %>",
+        debug: <%= Rails.env.development? ? 'true' : 'false' %>,
+        forceRedirect: true
+      });
+    </script>
+
+    <%= javascript_include_tag 'application', "data-turbolinks-track" => true %>
+
+    <% if content_for?(:javascript) %>
+      <div id="ContentForJavascript" data-turbolinks-temporary>
+        <%= yield :javascript %>
+      </div>
+    <% end %>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+<% content_for :javascript do %>
+  <script type="text/javascript">
+    ShopifyApp.ready(function(){
+      ShopifyApp.Bar.initialize({
+        icon: "<%= asset_path('favicon.ico') %>",
+        pagination: {
+          previous: <%= (@previous_page.present? ? {href: @previous_page} : nil).to_json.html_safe %>,
+          next: <%= (@next_page.present? ? {href: @next_page} : nil).to_json.html_safe %>
+        }
+      });
+    });
+  </script>
+<% end %>
+
+<div class="section">
+  <div class="section-content">
+    <div class="section-row">
+      <div class="section-listing">
+        <div class="section-options">
+          <ul class="section-tabs">
+            <li class="active"><a href="#top">All Orders</a></li>
+          </ul>
+          <div class="section-content">
+            <div class="section-row">
+              <% if @orders.any? %>
+                <table class="table-section">
+                  <thead>
+                  <tr>
+                    <th class="select-col">
+                      <div class="btn default btn-select-all ico-down">
+                        <input id="select-all" class="checkbox" type="checkbox" value="" name="select-all">
+                        <span class="checkbox-styled"></span>
+                      </div>
+                    </th>
+                    <th class="sortable">Order</th>
+                    <th class="sortable">Date</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                    <% @orders.each do |order| %>
+                        <tr>
+                          <td>
+                            <input class="checkbox select-order-checkbox" type="checkbox" value="<%= order.id %>">
+                            <span class="checkbox-styled"></span>
+                          </td>
+                          <td><%= link_to order.shopify_order_name, "https://#{@shop_session.url}/admin/orders/#{order.shopify_order_id}", target: "_top" %></td>
+                          <td><%= format_date order.shopify_order_created_at %></td>
+                        </tr>
+                    <% end %>
+                  </tbody>
+                </table>
+              <% else %>
+                  <div>There is no order.</div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
