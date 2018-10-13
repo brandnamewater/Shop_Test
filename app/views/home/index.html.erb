@@ -69,11 +69,13 @@
 
               </thead>
               <tbody>
+                <% @products.each do |product| %>
+
                 <tr class="Polaris-DataTable__TableRow">
-                  <th class="Polaris-DataTable__Cell Polaris-DataTable__Cell--fixed" scope="row">Emerald Silk Gown</th>
-                  <td class="Polaris-DataTable__Cell Polaris-DataTable__Cell--numeric">$875.00</td>
-                  <td class="Polaris-DataTable__Cell Polaris-DataTable__Cell--numeric">124689</td>
-                  <td class="Polaris-DataTable__Cell Polaris-DataTable__Cell--numeric">140</td>
+                  <th class="Polaris-DataTable__Cell Polaris-DataTable__Cell--fixed" scope="row"><%= link_to order.id, "https://#{@shop_session.url}/admin/orders/", target: "_top" %></th>
+                  <td class="Polaris-DataTable__Cell Polaris-DataTable__Cell--numeric"><%= order.id, "https://#{@shop_session.url}/admin/orders/", target: "_top" %></td>
+                  <td class="Polaris-DataTable__Cell Polaris-DataTable__Cell--numeric"><%= order.id, "https://#{@shop_session.url}/admin/orders/", target: "_top" %></td>
+                  <td class="Polaris-DataTable__Cell Polaris-DataTable__Cell--numeric"><%= order.id, "https://#{@shop_session.url}/admin/orders/", target: "_top" %></td>
                   <td class="Polaris-DataTable__Cell Polaris-DataTable__Cell--numeric">$122,500.00</td>
                 </tr>
                 <tr class="Polaris-DataTable__TableRow">
