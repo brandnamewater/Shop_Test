@@ -19,7 +19,7 @@
 
 <ul>
   <% @orders.each do |order| %>
-    <li><%= link_to order.id, "https://#{@shop_session.url}/admin/orders/", target: "_top" %></li>
+    <li><%= link_to order.id, "https://#{@shop_session.url}/admin/orders.json/", target: "_top" %></li>
   <% end %>
 </ul>
 
