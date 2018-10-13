@@ -1,5 +1,4 @@
 class Shop < ActiveRecord::Base
-  include ShopifyApp::Shop
   include ShopifyApp::SessionStorage
 
   has_many :orders, dependent: :destroy
@@ -23,5 +22,5 @@ class Shop < ActiveRecord::Base
   def orders_synchronized?
     return self.orders_synchronized
   end
-  
+
 end
