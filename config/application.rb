@@ -17,9 +17,9 @@ module NewApp
     # the framework and any gems in your application.
   end
 
-  module Example
-  class Application < Rails::Application
-    config.action_dispatch.default_headers['P3P'] = 'CP="Not used"'
-    config.action_dispatch.default_headers.delete('X-Frame-Options')
-end
+#   module Example
+#   class Application < Rails::Application
+#     config.action_dispatch.default_headers['P3P'] = 'CP="Not used"'
+#     config.action_dispatch.default_headers.delete('X-Frame-Options')
+# end
 end
