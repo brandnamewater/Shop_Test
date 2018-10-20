@@ -19,6 +19,7 @@
   get 'form_page' => "home#form_page"
   post 'form_page' => "home#form_page"
   get 'error' => 'home#error'
+  get 'orders' => "home#orders"
 
 root :to => 'home#index'
 end
