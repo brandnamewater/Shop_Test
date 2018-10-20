@@ -7,7 +7,14 @@ class HomeController < ShopifyApp::AuthenticatedController
 
   # def index
   # end
+  def orders
 
+    @products = ShopifyAPI::Product.find(:all, params: { limit: 10 })
+    @orders = ShopifyAPI::Order.find(:all)
+    @webhooks = ShopifyAPI::Webhook.find(:all)
+
+  end
+  
   def modal
   end
 
