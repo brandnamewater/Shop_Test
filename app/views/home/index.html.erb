@@ -186,3 +186,17 @@
 
   <% end %>
 </ul>
+
+
+<ul>
+
+  <%= form_with(model: order, local: true) do |form| %>
+
+    <%= form.label :name %>
+    <%= form.text_field :shopify_order_name, class: "form-control" %>
+
+    <%= form.submit %>
+
+  <% end %>
+
+</ul>
