@@ -187,16 +187,13 @@
   <% end %>
 </ul>
 
-
-<ul>
-
-  <%= form_with(model: order, local: true) do |form| %>
-
+<form method="POST" action="https://#{@shop_session.url}/admin/orders.json" data-shopify-app-submit="save-unicorn-form-message">
+  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+  <p>
     <%= form.label :name %>
     <%= form.text_field :shopify_order_name, class: "form-control" %>
 
     <%= form.submit %>
+  </p>
 
-  <% end %>
-
-</ul>
+</form>
