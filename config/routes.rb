@@ -20,7 +20,7 @@
   post 'form_page' => "home#form_page"
   get 'error' => 'home#error'
   get 'orders' => "home#orders"
-  get 'order_old' => "home#orders_old"
+  get 'order_old' => "home#order_old"
 
 
 root :to => 'home#index'
