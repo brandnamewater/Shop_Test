@@ -177,3 +177,12 @@
   <li><a href="/404.html">Error 404</a></li>
   <li><a href="/500.html">Error 500</a></li>
 </ul>
+
+<h2>Orders</h2>
+
+<ul>
+  <% @orders.each do |order| %>
+    <li><%= link_to order.id, "https://#{@shop_session.url}/admin/orders/", target: "_top" %></li>
+
+  <% end %>
+</ul>
