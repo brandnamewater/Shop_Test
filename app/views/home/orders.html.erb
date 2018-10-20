@@ -54,7 +54,7 @@
   <script type="text/javascript">
     ShopifyApp.ready(function(){
       ShopifyApp.Bar.initialize({
-        icon: "<%= asset_path('favicon.ico') %>",
+        // icon: "<%= asset_path('') %>",
         pagination: {
           previous: <%= (@previous_page.present? ? {href: @previous_page} : nil).to_json.html_safe %>,
           next: <%= (@next_page.present? ? {href: @next_page} : nil).to_json.html_safe %>
