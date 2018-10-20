@@ -95,13 +95,8 @@
                             <input class="checkbox select-order-checkbox" type="checkbox" value="<%= order.id %>">
                             <span class="checkbox-styled"></span>
                           </td>
-                          <% if order.present? %>
-                          <td><%= link_to order.shopify_order_name, "https://#{@shop_session.url}/admin/orders/#{order.shopify_order_id}", target: "_top" %></td>
+                          <td><%= link_to order.shopify_order_name, "https://#{@shop_session.url}/admin/orders/", target: "_top" %></td>
                           <td><%= format_date order.shopify_order_created_at %></td>
-                          <% else %>
-                          <td>nil</td>
-                          <td>nil</td>
-                          <% end %>
                         </tr>
                     <% end %>
                   </tbody>
