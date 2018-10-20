@@ -45,4 +45,3 @@ class HomeController < ShopifyApp::AuthenticatedController
   end
 
 end
-end
